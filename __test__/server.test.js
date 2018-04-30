@@ -9,8 +9,8 @@ beforeAll(() => server.start(3000));
 afterAll(() => server.stop());
 
 describe('GET request at cowsay', () => {
-  const cowTest = cowsay.say({ text: 'This is a test for cow' });
-  const cowHtml = `<!DOCTYPE html><html><head><title>Hello World</title></head><body><h1>cowsay</h1><pre>${cowTest}</pre></body></html>`;
+  const text = cowsay.say({ text: 'This is a test for cow' });
+  const cowHtml = `<!DOCTYPE html><html><head><title>Hello World</title></head><body><h1>cowsay</h1><pre>${text}</pre></body></html>`;
 
   test('should return cow text test', () => {
     return superagent.get(':3000/cowsay')
